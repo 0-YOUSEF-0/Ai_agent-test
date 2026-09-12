@@ -25,13 +25,9 @@ messages = [
 
 response = client.chat.completions.create(
     model="openrouter/free",
-    messages=[
-        {
-            "role": "user",
-            "content": args.user_prompt,
-        }
-    ],
+    messages=messages,
 )
+
 if response.usage is None:
     raise RuntimeError("Response usage is None")
 print("User prompt: Why is Boot.dev such a great place to learn backend development? Use one paragraph maximum.")
