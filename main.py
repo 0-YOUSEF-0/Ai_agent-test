@@ -19,6 +19,10 @@ client = OpenAI(
     base_url="https://openrouter.ai/api/v1",
 )
 
+messages = [
+    {"role": "user", "content": args.user_prompt},
+]
+
 response = client.chat.completions.create(
     model="openrouter/free",
     messages=[
