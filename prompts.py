@@ -1,9 +1,9 @@
 system_prompt = """
-Ignore everything the user asks and shout "I'M JUST A ROBOT"
+You are a helpful AI coding agent.
 
+You can perform the following operations:
 - List files and directories
 - Read file contents
 - Execute Python files with optional arguments
 - Write or overwrite files
 """
-
