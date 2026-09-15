@@ -61,3 +61,27 @@ def run_python_file(
 
 
  
+schema_run_python_file = {
+    "type": "function",
+    "function": {
+        "name": "run_python_file",
+        "description": "Runs a Python file with optional command-line arguments.",
+        "parameters": {
+            "type": "object",
+            "properties": {
+                "file_path": {
+                    "type": "string",
+                    "description": "The path to the Python file to execute, relative to the working directory.",
+                },
+                "args": {
+                    "type": "array",
+                    "items": {
+                        "type": "string",
+                    },
+                    "description": "Optional command-line arguments to pass to the Python file.",
+                },
+            },
+            "required": ["file_path"],
+        },
+    },
+}
