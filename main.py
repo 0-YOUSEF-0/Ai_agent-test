@@ -28,12 +28,14 @@ messages = [
     {"role": "user", "content": args.user_prompt},
 ]
 
-response = client.chat.completions.create(
-    model="openrouter/free",
-    messages=messages,
-    tools=available_functions,
-    temperature=0,
-)
+
+for _ in range(20):
+    response = client.chat.completions.create(
+        model="openrouter/free",
+        messages=messages,
+        tools=available_functions,
+        temperature=0,
+    )
 
 
 
@@ -56,5 +58,7 @@ if message.tool_calls:
 
         if args.verbose:
             print(f"-> {result_message['content']}")
+
+        messages.append(result_message)
 else:
     print(message.content)
