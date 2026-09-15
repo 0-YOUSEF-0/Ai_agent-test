@@ -3,6 +3,8 @@ from dotenv import load_dotenv
 import os
 from openai import OpenAI
 from prompts import system_prompt
+from call_function import available_functions
+
 
 parser = argparse.ArgumentParser(description="Chatbot")
 parser.add_argument("user_prompt", type=str, help="User prompt")
@@ -29,6 +31,7 @@ messages = [
 response = client.chat.completions.create(
     model="openrouter/free",
     messages=messages,
+    tools=available_functions,
     temperature=0,
 )
 
